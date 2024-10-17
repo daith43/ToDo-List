@@ -1,0 +1,220 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0 auto;
+    --font-primary: "Open sans";
+    /*font-family:  Roboto;*/
+    font-family: var(--font-primary);
+}
+
+body{
+    background-color: #000;
+    display: grid;
+    place-content: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+.container{
+    width: fit-content;
+    padding: 50px;
+    margin: 50px 0;
+    height: fit-content;
+    text-align: center;
+    color: #000;
+    /*background: #fff;*/
+    background-color: transparent;
+    border: 0px solid red;
+    border-radius: 16px;
+}
+
+h1{
+   width: fit-content;
+   padding: 50px 100px;
+   color: #fff;
+}
+
+button{
+    color: red;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    margin: 0 15px;
+    background-color: transparent;
+}
+
+button.editar{
+    color: #fff;
+    font-size: 15px;
+}
+
+h5{
+    color: #fff;
+    padding: 5px;
+    margin: 0 15px;
+}
+
+span{
+    color: #fff;
+    margin-left: 10px;
+}
+
+.controles{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    width: 75vw;
+    max-width: 500px;
+
+    
+    button:first-child{
+        color: #fff;
+        font-weight: bold;
+    }
+}
+
+@keyframes strikeThrough {
+    to {
+        width: 100%; /* Termina con un ancho de 100% */
+    }
+}
+
+.tarea{
+    display: flex;
+    width: 75vw;
+    max-width: 500px;
+    margin-top: 12px;
+    padding: 5px 10px;
+    color: #000;
+    background-color: #1a1a1a;
+    box-shadow: 2px 2px 2px #000;
+
+    img{
+        cursor: pointer;
+        filter: drop-shadow(1px 1px 1px rgba(0,0,0,.8));
+    }
+
+
+    p{
+        font-size : 20px;
+        width : 100%;
+        padding : 15px 0;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+
+    }
+
+    span{
+        color: #fff;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;  
+    }
+
+
+
+    .tachado::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 0; /* Comienza con un ancho de 0 */
+        height: 2px; /* Grosor del tachado */
+        background-color: #363636; /* Color del tachado */
+        transform: translateY(-50%);
+        animation: strikeThrough 1s forwards;
+
+    }
+
+    .tachado{
+        color: #363636;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration-line: 2px;
+        position: relative;
+    }
+
+    .editar{
+        margin: 0 5px;
+    }
+}
+
+/* Checkbox */
+
+.container-btn {
+    cursor: pointer;
+    margin-top: 20px;
+    margin-right: 15px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,.3));
+  }
+  
+  .container-btn input {
+    display: none;
+  }
+  
+  .container-btn svg {
+    overflow: visible;
+  }
+
+
+  
+  .path {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+    stroke-dasharray: 241 9999999;
+    stroke-dashoffset: 0;
+  }
+  
+  .container-btn input:checked ~ svg .path {
+    stroke-dasharray: 70.5096664428711 9999999;
+    stroke-dashoffset: -262.2723388671875;
+  }
+  
+  /*  Por terminars */
+
+  .aviso{
+    display: none;
+    width: 100%;
+    height: fit-content;
+    color: #363636;
+    padding: 25px;
+    margin-top: 20px;
+    font-size: 22px;
+  }
+
+/* Medias */
+
+
+@media (max-width: 500px) {
+
+    .container{
+        padding: 25px;
+        padding-top: 0;
+    }
+
+    h1{
+        padding: 50px 0px;
+     }
+
+    .controles{
+        width: 85vw;
+    }
+
+    .tarea{
+        width: 85vw;
+
+        p{
+            font-size : 18px;
+        }
+
+    }
+}
